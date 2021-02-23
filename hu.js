@@ -55,7 +55,7 @@ var indexOfElement = function(target, elements) {
         }
     }
 }
-
+//切换class
 var addClass = function(index, selector, className) {
     var elements = es(selector)
     var e = elements[index]
