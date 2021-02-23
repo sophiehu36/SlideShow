@@ -8,6 +8,6 @@
 -控制是否自动轮播
 
 -效果图-<br>
-![](https://img9.doubanio.com/view/photo/l/public/p2633791196.webp)
+![](https://github.com/sophiehu36/SlideShow/blob/main/images/display.JPG)
 
 
