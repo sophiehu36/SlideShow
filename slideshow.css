@@ -1,5 +1,6 @@
 * {
     margin: 0;
+    padding: 0;
 }
 body {
     background-color: rgb(255 235 59 / 23%);
@@ -30,15 +31,20 @@ h2 {
     position: absolute;
     bottom: 20px;
     left: 45%;
+    margin: 0;
+    padding: 0;
+    font-size: 0;    
 
 }
 .slide-indi {
-    margin-left: 6px;
+    position: relative;
+    margin: 0 6px;
     display: inline-block;
     width: 10px;
     height: 10px;
     border-radius: 50%;
     background: gray;
+    font-size: 0;
 }
 .slide-indi:hover {
     cursor: pointer;
