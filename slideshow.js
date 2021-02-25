@@ -35,15 +35,18 @@ const bindEventSlide = function() {
 
 const bindEventIndicator = function() {
     var indiContainer = e('.slide-indicators')
-    bindEvent(indiContainer, 'click', function(event){
+    bindEvent(indiContainer, 'mouseover', function(event){
         var target = event.target
-        var index = indexOfElement(target, indiContainer.children)
-        var slide = e('.slide-container')
-        slide.dataset.active = index
-        //切换显示图片
-        addClass(index, '.slide-image', 'img-active')
-        //切换对应下标的小圆点效果
-        addClass(index, '.slide-indi', 'white')
+        if (target.classList.contains('slide-indi')) {
+            var index = target.dataset.indi
+            var slide = e('.slide-container')
+            slide.dataset.active = index
+            log(index)
+            //切换显示图片
+            addClass(index, '.slide-image', 'img-active')
+            //切换对应下标的小圆点效果
+            addClass(index, '.slide-indi', 'white')
+        }
     })
 }
 
@@ -62,7 +65,9 @@ const autoPlay = function() {
     addClass(nextIndex, '.slide-indi', 'white')
 }
 
-const setAutoPlay = setInterval(autoPlay, 3000)
+const setAutoPlay = function() {
+    setInterval(autoPlay, 3000)
+}
 
 const __main = function() {
     bindEventSlide()
