@@ -1,3 +1,4 @@
+//点击前后按钮切换图片
 const bindEventSlide = function() {
     var selector = '.slide-button'
     bindAll(selector, 'click', function(event){
@@ -32,7 +33,7 @@ const bindEventSlide = function() {
     })
 }
 
-
+//点击小圆点切换图片
 const bindEventIndicator = function() {
     var indiContainer = e('.slide-indicators')
     bindEvent(indiContainer, 'mouseover', function(event){
@@ -50,6 +51,7 @@ const bindEventIndicator = function() {
     })
 }
 
+//切换图片
 const autoPlay = function() {
     //选中slide-container
     var slide = e('.slide-container')
@@ -65,14 +67,27 @@ const autoPlay = function() {
     addClass(nextIndex, '.slide-indi', 'white')
 }
 
-const setAutoPlay = function() {
-    setInterval(autoPlay, 3000)
+//设置自动切换图片定时器
+//设置鼠标移动到图片区域时清除自动播放定时器
+const bindEventSetAutoPlay = function() {
+    const slide = e('.slide-container')
+    bindEvent(slide, 'mouseenter', function() {
+        log('stop auto play')
+        clearInterval(timer)
+        timer = null
+    })
+    bindEvent(slide, 'mouseleave', function() {
+        log('start auto play')
+        timer = setInterval(autoPlay, 3000)
+    })
 }
+//设置定时器自动播放
+var timer = setInterval(autoPlay, 3000)
 
 const __main = function() {
     bindEventSlide()
     bindEventIndicator()
-    setAutoPlay()
+    bindEventSetAutoPlay()
 }
 
 __main()
