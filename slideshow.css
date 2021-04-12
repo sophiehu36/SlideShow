@@ -21,7 +21,7 @@ h2 {
     /*transition: 0.5s;*/
 }
 .img-active {
-    display: block;
+    display: inline;
 }
 .vertical-center {
     position: absolute;
