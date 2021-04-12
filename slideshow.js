@@ -23,11 +23,14 @@ const bindEventSlide = function() {
         }
         // 设置父节点的 data-active
         slide.dataset.active = nextIndex
-        const nextSelector = '#id-image-' + String(nextIndex)
+        //拼接得到下一张图片的id
+        const nextImgSelector = '#id-image-' + String(nextIndex)
         // 删除当前图片的 class 给下一张图片加上 class
         const className = 'img-active'
         removeClassAll(className)
-        const img = e(nextSelector)
+        //选中下一张图片
+        const img = e(nextImgSelector)
+        //添加class显示图片
         img.classList.add(className)
         //切换对应下标的小圆点效果
         addClass(nextIndex, '.slide-indi', 'white')
@@ -36,14 +39,20 @@ const bindEventSlide = function() {
 
 //点击小圆点切换图片
 const bindEventIndicator = function() {
+    //选中小圆点的父元素
     const indiContainer = e('.slide-indicators')
+    //利用事件委托，绑定在父元素上，获取事件
     bindEvent(indiContainer, 'mouseover', function(event){
         const target = event.target
+        //判断事件对象是否为小圆点
         if (target.classList.contains('slide-indi')) {
+            //获取当前的小圆点的下标
             const index = target.dataset.indi
+            //选中图片框
             const slide = e('.slide-container')
+            //设置当前轮播图片下标为小圆点下标
             slide.dataset.active = index
-            log(index)
+            // log(index)
             //切换显示图片
             addClass(index, '.slide-image', 'img-active')
             //切换对应下标的小圆点效果
@@ -61,6 +70,7 @@ const autoPlay = function() {
     const activeIndex = parseInt(slide.dataset.active)
     //计算出下一张图片下标
     let nextIndex = (activeIndex + 1) % numberOfImgs
+    //设置当前轮播图片下标
     slide.dataset.active = nextIndex
     //切换显示图片
     addClass(nextIndex, '.slide-image', 'img-active')
@@ -71,13 +81,16 @@ const autoPlay = function() {
 //设置自动切换图片定时器
 //设置鼠标移动到图片区域时清除自动播放定时器
 const bindEventSetAutoPlay = function() {
+    //选中图片区域
     const slide = e('.slide-container')
+    //监听事件，mouseenter的时候暂停轮播
     bindEvent(slide, 'mouseenter', function() {
         log('stop auto play')
         //清除定时器
         clearInterval(timer)
         timer = null
     })
+    //监听事件，mouseleave的时候开始轮播
     bindEvent(slide, 'mouseleave', function() {
         log('start auto play')
         //设定定时器
