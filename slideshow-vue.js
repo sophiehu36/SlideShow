@@ -8,11 +8,11 @@ new Vue({
 	methods: {
 		previousImg: function () {
 			this.number = ++this.number % 4;
-			this.imgSrc = `images/${this.number}.jpg`;
+			// this.imgSrc = `images/${this.number}.jpg`;
 		},
 		nextImg: function () {
 			this.number = (--this.number + 4) % 4;
-			this.imgSrc = `images/${this.number}.jpg`;
+			// this.imgSrc = `images/${this.number}.jpg`;
 		},
 	},
 });
