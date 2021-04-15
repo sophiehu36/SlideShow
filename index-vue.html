@@ -5,60 +5,38 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>交响情人梦 のだめカンタービレ</title>
-		<link rel="stylesheet" href="slideshow.css" />
+		<link rel="stylesheet" href="slideshow-vue.css" />
 		<script src="hu.js"></script>
 	</head>
 	<body>
 		<h2>交响情人梦 のだめカンタービレ</h2>
 		<!-- data-imgs 是图片的总数 -->
 		<!-- data-active 是当前显示的图片的下标 -->
-		<div class="slide-container" data-imgs="4" data-active="0">
+		<div id="slide-container">
 			<!-- 轮播的图片-->
-			<img
-				id="id-image-0"
-				class="slide-image img-active"
-				v-bind:
-				src="src"
-				alt=""
-			/>
-			<img
-				id="id-image-1"
-				class="slide-image"
-				src="images/2.jpg"
-				alt=""
-			/>
-			<img
-				id="id-image-2"
-				class="slide-image"
-				src="images/3.jpg"
-				alt=""
-			/>
-			<img
-				id="id-image-3"
-				class="slide-image"
-				src="images/4.jpg"
-				alt=""
-			/>
+			<img id="slide-image" v-bind:src="imgSrc" alt="" />
 			<!-- 图片切换按钮：上一张，下一张-->
 			<button
 				id="slide-button1"
 				v-on:click="previousImg"
-				class="slide-button vertical-center"
-			></button>
+				class="slide-button"
+			>
+				<
+			</button>
 			<button
 				id="slide-button2"
 				v-on:click="nextImg"
-				class="slide-button vertical-center"
+				class="slide-button"
 			>
 				>
 			</button>
 			<!-- 小圆点切换图片-->
-			<div class="slide-indicators">
+			<!-- <div class="slide-indicators">
 				<div class="slide-indi white" data-indi="0"></div>
 				<div class="slide-indi" data-indi="1"></div>
 				<div class="slide-indi" data-indi="2"></div>
 				<div class="slide-indi" data-indi="3"></div>
-			</div>
+			</div>-->
 		</div>
 		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 		<script src="slideshow-vue.js"></script>
