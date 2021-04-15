@@ -4,12 +4,24 @@ new Vue({
 	data: {
 		number: 0,
 	},
+	// computed计算属性会有缓存
+	// computed: {
+	// 	// 计算属性的getter
+	// 	imgSrc: function () {
+	// 		return "images/" + this.number + ".jpg";
+	// 	},
+	// },
 	methods: {
 		previousImg: function () {
 			this.number = ++this.number % 4;
 		},
 		nextImg: function () {
 			this.number = (--this.number + 4) % 4;
+		},
+		// method没有缓存，并且html里面要调用这个方法imgSrc()
+		// <img id="slide-image" v-bind:src="imgSrc()" alt="" />
+		imgSrc: function () {
+			return "images/" + this.number + ".jpg";
 		},
 	},
 });

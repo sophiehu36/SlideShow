@@ -14,7 +14,7 @@
 		<!-- data-active 是当前显示的图片的下标 -->
 		<div id="slide-container">
 			<!-- 轮播的图片-->
-			<img id="slide-image" v-bind:src="'images/'+number+'.jpg'" alt="" />
+			<img id="slide-image" v-bind:src="imgSrc()" alt="" />
 			<!-- 图片切换按钮：上一张，下一张-->
 			<button
 				id="slide-button1"
