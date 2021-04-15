@@ -3,16 +3,13 @@ new Vue({
 	el: "#slide-container",
 	data: {
 		number: 0,
-		imgSrc: `images/0.jpg`,
 	},
 	methods: {
 		previousImg: function () {
 			this.number = ++this.number % 4;
-			// this.imgSrc = `images/${this.number}.jpg`;
 		},
 		nextImg: function () {
 			this.number = (--this.number + 4) % 4;
-			// this.imgSrc = `images/${this.number}.jpg`;
 		},
 	},
 });
