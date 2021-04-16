@@ -1,5 +1,5 @@
 //点击前后按钮切换图片
-new Vue({
+let slideShow = new Vue({
 	el: "#slide-container",
 	data: {
 		number: 0,
@@ -37,7 +37,6 @@ new Vue({
 		},
 	},
 });
-
 
 // //设置自动切换图片定时器
 // //设置鼠标移动到图片区域时清除自动播放定时器
