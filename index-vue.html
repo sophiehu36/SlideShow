@@ -31,12 +31,28 @@
 				>
 			</button>
 			<!-- 小圆点切换图片-->
-			<!-- <div class="slide-indicators">
-				<div class="slide-indi white" data-indi="0"></div>
-				<div class="slide-indi" data-indi="1"></div>
-				<div class="slide-indi" data-indi="2"></div>
-				<div class="slide-indi" data-indi="3"></div>
-			</div>-->
+			<div class="slide-indicators">
+				<div
+					class="slide-indi"
+					@mouseenter="changeSrc1"
+					:class="[number === 0 ? 'white' : '']"
+				></div>
+				<div
+					class="slide-indi"
+					@mouseenter="changeSrc2"
+					:class="[number === 1 ? 'white' : '']"
+				></div>
+				<div
+					class="slide-indi"
+					@mouseenter="changeSrc3"
+					:class="[number === 2 ? 'white' : '']"
+				></div>
+				<div
+					class="slide-indi"
+					@mouseenter="changeSrc4"
+					:class="[number === 3 ? 'white' : '']"
+				></div>
+			</div>
 		</div>
 		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 		<script src="slideshow-vue.js"></script>
