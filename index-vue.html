@@ -12,7 +12,7 @@
 		<h2>交响情人梦 のだめカンタービレ</h2>
 		<!-- data-imgs 是图片的总数 -->
 		<!-- data-active 是当前显示的图片的下标 -->
-		<div id="slide-container">
+		<div id="slide-container" @mouseenter="stopAutoPlay" @mouseleave="autoPlay">
 			<!-- 轮播的图片-->
 			<img id="slide-image" v-bind:src="imgSrc()" alt="" />
 			<!-- 图片切换按钮：上一张，下一张-->
