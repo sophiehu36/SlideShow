@@ -3,6 +3,7 @@ let slideShow = new Vue({
 	el: "#slide-container",
 	data: {
 		number: 0,
+		timer: setInterval(this.nextImg, 3000),
 	},
 	// computed计算属性会有缓存
 	// computed: {
@@ -35,35 +36,12 @@ let slideShow = new Vue({
 		changeSrc4: function () {
 			this.number = 3;
 		},
+		autoPlay: function () {
+			this.timer = setInterval(this.nextImg, 3000);
+		},
+		stopAutoPlay: function () {
+			clearInterval(this.timer);
+			this.timer = null;
+		},
 	},
 });
-
-// //设置自动切换图片定时器
-// //设置鼠标移动到图片区域时清除自动播放定时器
-// const bindEventSetAutoPlay = function () {
-// 	//选中图片区域
-// 	const slide = e(".slide-container");
-// 	//监听事件，mouseenter的时候暂停轮播
-// 	bindEvent(slide, "mouseenter", function () {
-// 		log("stop auto play");
-// 		//清除定时器
-// 		clearInterval(timer);
-// 		timer = null;
-// 	});
-// 	//监听事件，mouseleave的时候开始轮播
-// 	bindEvent(slide, "mouseleave", function () {
-// 		log("start auto play");
-// 		//设定定时器
-// 		timer = setInterval(autoPlay, 3000);
-// 	});
-// };
-// //设置定时器自动播放
-// let timer = setInterval(autoPlay, 3000);
-
-// const __main = function () {
-// 	bindEventSlide();
-// 	// bindEventIndicator();
-// 	// bindEventSetAutoPlay();
-// };
-
-// __main();
